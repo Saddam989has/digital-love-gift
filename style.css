@@ -1,15 +1,33 @@
 
 * {
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
 }
 
-body {
+html, body {
     margin: 0;
     min-height: 100vh;
     font-family: 'DM Sans', sans-serif;
     color: #805568;
     background: linear-gradient(135deg, #fff5f8, #ffe0eb);
     overflow-x: hidden;
+}
+
+body {
+    outline: none;
+}
+
+button, a, input, [role="button"] {
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none;
+}
+
+button:focus,
+button:active,
+button:focus-visible {
+    outline: none !important;
+    box-shadow: none;
 }
 
 .container {
@@ -311,28 +329,17 @@ h1 span {
     color: #c66d8e;
 }
 
-@media(max-width: 480px) {
-    h1 {
-        font-size: 42px;
-    }
-}
+/* LOVE MELAYANG */
 
-/* Hilangkan efek biru saat tombol ditekan */
-button,
-button:focus,
-button:active {
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-}
-
-/* Animasi love melayang */
 .floating-heart {
     position: fixed;
     bottom: -30px;
+    left: 0;
     pointer-events: none;
     z-index: 9999;
     animation: floatLove 2.5s ease-out forwards;
     user-select: none;
+    -webkit-user-select: none;
 }
 
 @keyframes floatLove {
@@ -349,3 +356,8 @@ button:active {
     }
 }
 
+@media(max-width: 480px) {
+    h1 {
+        font-size: 42px;
+    }
+}
