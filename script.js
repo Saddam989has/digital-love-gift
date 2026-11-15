@@ -33,3 +33,26 @@ document.getElementById("later").addEventListener("click", () => {
     document.getElementById("response").textContent =
         "It's okay. Take your time. I'll respect your feelings. ♡";
 });
+
+
+function createFloatingHeart(x = Math.random() * window.innerWidth) {
+    const heart = document.createElement("span");
+
+    heart.className = "floating-heart";
+    heart.textContent = ["💗", "💕", "💖", "💘", "🩷"][
+        Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = x + "px";
+    heart.style.fontSize = (16 + Math.random() * 20) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 2600);
+}
+
+document.addEventListener("click", (e) => {
+    createFloatingHeart(e.clientX);
+});

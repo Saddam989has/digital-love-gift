@@ -316,3 +316,36 @@ h1 span {
         font-size: 42px;
     }
 }
+
+/* Hilangkan efek biru saat tombol ditekan */
+button,
+button:focus,
+button:active {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+/* Animasi love melayang */
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: floatLove 2.5s ease-out forwards;
+    user-select: none;
+}
+
+@keyframes floatLove {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(.7);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(35deg) scale(1.4);
+        opacity: 0;
+    }
+}
+
